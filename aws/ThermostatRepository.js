@@ -23,10 +23,7 @@ class ThermostatRepository {
     async add(thermostat) {
         const params = {
             TableName,
-            Item: {
-                userId: thermostat.userId,
-                executionId: thermostat.executionId
-            }
+            Item: thermostat
         };
 
         await this.client.put(params).promise();
