@@ -38,6 +38,7 @@ const turnOffCallbackPayloadSmartHome = (userId, duration) => {
             },
             payload: {
                 defer: false,
+                source: 'callback',
                 thermostatMode: {
                     value: 'OFF'
                 }
