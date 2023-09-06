@@ -1,5 +1,5 @@
 {
-  "name": "smartheat-aws",
+  "name": "@matthewturner/smartheat-aws",
   "version": "1.0.0",
   "description": "Support module for SmartHeat when run in AWS",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": "https://github.com/matthewturner/smartheat-aws",
   "publishConfig": {
-    "@matthewturner:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "ajv": "^8.12.0",
