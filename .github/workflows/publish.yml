@@ -13,6 +13,8 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_READ }}
       - run: npm test
 
   publish-gpr:
@@ -29,6 +31,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@matthewturner'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_READ }}
       - run: npm version --git-tag-version false ${{github.event.release.tag_name}}
       - run: npm publish
         env:
