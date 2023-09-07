@@ -16,18 +16,18 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Updating npmrc environment variable syntax
-      shell: bash
-      run: |
-        echo -e '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}'$'\n'"$(cat .npmrc)" > .npmrc
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_READ }}
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Updating npmrc environment variable syntax
+        shell: bash
+        run: |
+          echo -e '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}'$'\n'"$(cat .npmrc)" > .npmrc
+      - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_READ }}
+      - run: npm run build --if-present
+      - run: npm test
