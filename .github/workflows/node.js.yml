@@ -17,6 +17,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Updating npmrc environment variable syntax
+      shell: bash
+      run: |
+        echo -e '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}'$'\n'"$(cat .npmrc)" > .npmrc
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
