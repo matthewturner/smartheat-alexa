@@ -22,13 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      
-      - name: Updating npmrc environment variable syntax
-        shell: bash
-        run: |
-          echo -e '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}'$'\n'"$(cat .npmrc)" > .npmrc
-      
-      - name: Run
+      - run: echo -e '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}'$'\n'"$(cat .npmrc)" > .npmrc
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_READ }}
