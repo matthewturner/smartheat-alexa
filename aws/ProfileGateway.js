@@ -1,5 +1,5 @@
 const axios = require('axios');
-const Logger = require('smartheat-core/core/Logger');
+const Logger = require('@matthewturner/smartheat-core/core/Logger');
 
 const logger = new Logger(process.env.LOG_LEVEL || Logger.DEBUG);
 
