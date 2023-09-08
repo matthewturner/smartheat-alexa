@@ -1,4 +1,4 @@
-const Duration = require('durationjs');
+const Duration = require('@matthewturner/durationjs');
 const JSON = require('JSON');
 const StepFunctions = require('aws-sdk/clients/stepfunctions');
 const helpers = require('./helpers');
